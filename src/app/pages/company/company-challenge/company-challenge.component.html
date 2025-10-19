@@ -1,0 +1,333 @@
+<main>
+  <div>
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8">
+      <div>
+        <h1 class="text-3xl font-bold text-primary mb-2">Create New Challenge</h1>
+        <p class="text-gray-600">Design engaging challenges to boost team participation and motivation.</p>
+      </div>
+      <a routerLink="/dashboard" data-readdy="true" class="flex items-center text-gray-600 hover:text-secondary transition-colors mt-4 sm:mt-0">
+        <i class="ri-arrow-left-line w-4 h-4 flex items-center justify-center mr-2"></i>
+        Back to Dashboard
+      </a>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2 space-y-8">
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+          <h3 class="text-lg font-semibold text-primary mb-6">Basic Information</h3>
+          <div class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Challenge Title *</label>
+              <input type="text" id="challengeTitle" placeholder="Enter challenge title..." class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+              <textarea id="challengeDescription" rows="4" placeholder="Describe your challenge objectives and details..." class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary resize-none"></textarea>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Category *</label>
+              <div class="relative">
+                <button id="categoryDropdown" class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm text-left focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary flex items-center justify-between">
+                  <span id="categorySelected">Select a category</span>
+                  <i class="ri-arrow-down-s-line w-4 h-4 flex items-center justify-center"></i>
+                </button>
+                <div id="categoryOptions" class="hidden absolute top-full left-0 w-full bg-white border border-gray-300 !rounded-button shadow-lg z-10 mt-1">
+                  <div class="py-1">
+                    <button class="category-option w-full px-4 py-2 text-left hover:bg-gray-50 text-sm" data-value="wellness">Wellness</button>
+                    <button class="category-option w-full px-4 py-2 text-left hover:bg-gray-50 text-sm" data-value="productivity">Productivity</button>
+                    <button class="category-option w-full px-4 py-2 text-left hover:bg-gray-50 text-sm" data-value="team-building">Team Building</button>
+                    <button class="category-option w-full px-4 py-2 text-left hover:bg-gray-50 text-sm" data-value="innovation">Innovation</button>
+                    <button class="category-option w-full px-4 py-2 text-left hover:bg-gray-50 text-sm" data-value="learning">Learning &amp; Development</button>
+                    <button class="category-option w-full px-4 py-2 text-left hover:bg-gray-50 text-sm" data-value="social-impact">Social Impact</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+          <h3 class="text-lg font-semibold text-primary mb-6">Duration &amp; Timing</h3>
+          <div class="space-y-6">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Start Date *</label>
+                <input type="date" id="startDate" class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">End Date *</label>
+                <input type="date" id="endDate" class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-4">Duration Type</label>
+              <div class="space-y-3">
+                <div class="flex items-center space-x-3">
+                  <div class="custom-radio active" data-value="fixed"></div>
+                  <span class="text-sm text-gray-700">Fixed Period</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="custom-radio" data-value="ongoing"></div>
+                  <span class="text-sm text-gray-700">Ongoing</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="custom-radio" data-value="milestone"></div>
+                  <span class="text-sm text-gray-700">Milestone-based</span>
+                </div>
+              </div>
+            </div>
+            <div id="durationInfo" class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div class="flex items-center">
+                <i class="ri-information-line w-4 h-4 flex items-center justify-center text-blue-600 mr-2"></i>
+                <span class="text-sm text-blue-800">Challenge duration will be calculated automatically</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+          <h3 class="text-lg font-semibold text-primary mb-6">Participation Rules</h3>
+          <div class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-4">Participation Type</label>
+              <div class="space-y-3">
+                <div class="flex items-center space-x-3">
+                  <div class="custom-radio active" data-value="individual"></div>
+                  <span class="text-sm text-gray-700">Individual</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="custom-radio" data-value="team"></div>
+                  <span class="text-sm text-gray-700">Team-based</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Minimum Participants</label>
+                <input type="number" placeholder="1" class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Maximum Participants</label>
+                <input type="number" placeholder="Unlimited" class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-4">Department Restrictions</label>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">All Departments</span>
+                  <div class="toggle-switch active" data-department="all"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">Marketing</span>
+                  <div class="toggle-switch" data-department="marketing"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">Engineering</span>
+                  <div class="toggle-switch" data-department="engineering"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">Sales</span>
+                  <div class="toggle-switch" data-department="sales"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+          <h3 class="text-lg font-semibold text-primary mb-6">Point Rewards</h3>
+          <div class="space-y-6">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Base Points</label>
+                <input type="number" placeholder="100" class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Completion Bonus</label>
+                <input type="number" placeholder="50" class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Performance Multiplier</label>
+              <div class="px-4">
+                <input type="range" min="1" max="5" step="0.5" value="1" class="range-slider w-full" id="multiplierRange">
+                <div class="flex justify-between text-xs text-gray-500 mt-2">
+                  <span>1x</span>
+                  <span>2x</span>
+                  <span>3x</span>
+                  <span>4x</span>
+                  <span>5x</span>
+                </div>
+                <div class="text-center mt-2">
+                  <span class="text-sm font-medium text-secondary" id="multiplierValue">1.0x</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Milestone Rewards</label>
+              <textarea rows="3" placeholder="Define milestone-based reward structure..." class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary resize-none"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+          <h3 class="text-lg font-semibold text-primary mb-6">Success Criteria</h3>
+          <div class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Completion Target</label>
+              <div class="relative">
+                <button id="targetDropdown" class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm text-left focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary flex items-center justify-between">
+                  <span id="targetSelected">Select completion criteria</span>
+                  <i class="ri-arrow-down-s-line w-4 h-4 flex items-center justify-center"></i>
+                </button>
+                <div id="targetOptions" class="hidden absolute top-full left-0 w-full bg-white border border-gray-300 !rounded-button shadow-lg z-10 mt-1">
+                  <div class="py-1">
+                    <button class="target-option w-full px-4 py-2 text-left hover:bg-gray-50 text-sm" data-value="participation">Participation Rate</button>
+                    <button class="target-option w-full px-4 py-2 text-left hover:bg-gray-50 text-sm" data-value="completion">Task Completion</button>
+                    <button class="target-option w-full px-4 py-2 text-left hover:bg-gray-50 text-sm" data-value="engagement">Engagement Score</button>
+                    <button class="target-option w-full px-4 py-2 text-left hover:bg-gray-50 text-sm" data-value="custom">Custom Metrics</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Target Value</label>
+                <input type="number" placeholder="80" class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Unit</label>
+                <input type="text" placeholder="%" class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Success Description</label>
+              <textarea rows="3" placeholder="Describe what constitutes success for this challenge..." class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary resize-none"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+          <h3 class="text-lg font-semibold text-primary mb-6">Visibility &amp; Privacy</h3>
+          <div class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-4">Challenge Visibility</label>
+              <div class="space-y-3">
+                <div class="flex items-center space-x-3">
+                  <div class="custom-radio active" data-value="company-wide"></div>
+                  <div>
+                    <span class="text-sm font-medium text-gray-700">Company-wide</span>
+                    <p class="text-xs text-gray-500">Visible to all employees</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="custom-radio" data-value="department"></div>
+                  <div>
+                    <span class="text-sm font-medium text-gray-700">Department Only</span>
+                    <p class="text-xs text-gray-500">Visible to selected departments</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="custom-radio" data-value="invitation"></div>
+                  <div>
+                    <span class="text-sm font-medium text-gray-700">Invitation Only</span>
+                    <p class="text-xs text-gray-500">Visible to invited participants</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-4">Privacy Settings</label>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-sm text-gray-700">Show participant names</span>
+                    <p class="text-xs text-gray-500">Display names on leaderboard</p>
+                  </div>
+                  <div class="toggle-switch active"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-sm text-gray-700">Show progress publicly</span>
+                    <p class="text-xs text-gray-500">Allow others to see progress</p>
+                  </div>
+                  <div class="toggle-switch active"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-sm text-gray-700">Enable comments</span>
+                    <p class="text-xs text-gray-500">Allow participant discussions</p>
+                  </div>
+                  <div class="toggle-switch"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+          <h3 class="text-lg font-semibold text-primary mb-6">Custom Instructions</h3>
+          <div class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Challenge Rules</label>
+              <textarea rows="4" placeholder="Define specific rules and guidelines for participants..." class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary resize-none"></textarea>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Resources &amp; Links</label>
+              <textarea rows="3" placeholder="Add helpful resources, links, or materials..." class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary resize-none"></textarea>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Additional Notes</label>
+              <textarea rows="3" placeholder="Any additional information for participants..." class="w-full px-4 py-3 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary resize-none"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-1">
+        <div class="sticky top-24">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 mb-6">
+            <h3 class="text-lg font-semibold text-primary mb-4">Challenge Preview</h3>
+            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+              <div class="flex items-center justify-between mb-3">
+                <span class="bg-secondary text-white px-2 py-1 rounded text-xs font-medium" id="previewCategory">Wellness</span>
+                <span class="text-xs text-gray-500" id="previewDuration">7 days</span>
+              </div>
+              <h4 class="font-semibold text-primary mb-2" id="previewTitle">Challenge Title</h4>
+              <p class="text-sm text-gray-600 mb-4" id="previewDescription">Challenge description will appear here...</p>
+              <div class="flex items-center justify-between text-xs text-gray-500 mb-3">
+                <span>Base Points: <span class="font-medium text-secondary" id="previewPoints">100</span></span>
+                <span>Participants: <span class="font-medium" id="previewParticipants">0</span></span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-6 h-6 flex items-center justify-center bg-secondary/10 rounded-full">
+                  <i class="ri-trophy-line text-xs text-secondary"></i>
+                </div>
+                <span class="text-xs text-gray-600" id="previewTarget">Target: 80%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <button id="previewBtn" class="w-full bg-gray-100 text-gray-700 px-4 py-3 !rounded-button hover:bg-gray-200 transition-colors whitespace-nowrap">
+              <i class="ri-eye-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+              Preview Challenge
+            </button>
+            <button id="saveDraftBtn" class="w-full border border-gray-300 text-gray-700 px-4 py-3 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+              <i class="ri-save-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+              Save as Draft
+            </button>
+            <button id="publishBtn" class="w-full bg-secondary text-white px-4 py-3 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+              <i class="ri-send-plane-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+              Publish Challenge
+            </button>
+            <a href="https://readdy.ai/home/515b074f-323a-4253-b5e9-2b3faf37d84c/d60476ea-07fb-4068-bf4a-29a444096840" data-readdy="true" class="w-full block text-center text-gray-500 hover:text-gray-700 transition-colors py-2 text-sm">
+              Cancel
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,304 @@
+<main>
+  <!-- Header -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8">
+    <div>
+      <h1 class="text-3xl font-bold text-primary mb-2">Reward Management</h1>
+      <p class="text-gray-600">Manage and configure employee rewards to boost engagement and motivation.</p>
+    </div>
+    <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+      <button id="add-reward-btn" class="bg-secondary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap inline-flex items-center">
+        <i class="ri-add-line w-4 h-4 flex items-center justify-center mr-2"></i>
+        Add New Reward
+      </button>
+      <button class="border border-gray-300 text-gray-700 px-4 py-2 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+        <i class="ri-download-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+        Export Rewards
+      </button>
+    </div>
+  </div>
+  <!-- Statistics Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between mb-4">
+        <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-xl">
+          <i class="ri-gift-line text-2xl text-blue-600"></i>
+        </div>
+        <span class="text-sm text-green-600 font-medium">+5</span>
+      </div>
+      <h3 class="text-2xl font-bold text-primary mb-1">47</h3>
+      <p class="text-gray-600">Total Rewards Available</p>
+    </div>
+    <div class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between mb-4">
+        <div class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-xl">
+          <i class="ri-check-line text-2xl text-green-600"></i>
+        </div>
+        <span class="text-sm text-green-600 font-medium">+3</span>
+      </div>
+      <h3 class="text-2xl font-bold text-primary mb-1">42</h3>
+      <p class="text-gray-600">Active Rewards</p>
+    </div>
+    <div class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between mb-4">
+        <div class="w-12 h-12 flex items-center justify-center bg-orange-100 rounded-xl">
+          <i class="ri-coin-line text-2xl text-orange-600"></i>
+        </div>
+        <span class="text-sm text-green-600 font-medium">+18%</span>
+      </div>
+      <h3 class="text-2xl font-bold text-primary mb-1">89,450</h3>
+      <p class="text-gray-600">Total Points Redeemed</p>
+    </div>
+    <div class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between mb-4">
+        <div class="w-12 h-12 flex items-center justify-center bg-purple-100 rounded-xl">
+          <i class="ri-star-line text-2xl text-purple-600"></i>
+        </div>
+        <span class="text-sm text-blue-600 font-medium">Gift Cards</span>
+      </div>
+      <h3 class="text-2xl font-bold text-primary mb-1">156</h3>
+      <p class="text-gray-600">Most Popular Category</p>
+    </div>
+  </div>
+  <!-- Category Filters -->
+  <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 mb-8">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
+      <h3 class="text-lg font-semibold text-primary mb-4 sm:mb-0">Reward Categories</h3>
+      <button id="add-category-btn" class="text-secondary hover:text-secondary/80 text-sm font-medium">
+        <i class="ri-add-line w-4 h-4 flex items-center justify-center mr-1 inline-flex"></i>
+        Add Category
+      </button>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <button class="category-filter active bg-secondary text-white px-4 py-2 !rounded-button text-sm whitespace-nowrap" data-category="all">
+        All Categories
+      </button>
+      <button class="category-filter bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 !rounded-button text-sm whitespace-nowrap" data-category="gift-cards">
+        Gift Cards
+      </button>
+      <button class="category-filter bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 !rounded-button text-sm whitespace-nowrap" data-category="company-swag">
+        Company Swag
+      </button>
+      <button class="category-filter bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 !rounded-button text-sm whitespace-nowrap" data-category="experiences">
+        Experience Rewards
+      </button>
+      <button class="category-filter bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 !rounded-button text-sm whitespace-nowrap" data-category="wellness">
+        Wellness Benefits
+      </button>
+      <button class="category-filter bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 !rounded-button text-sm whitespace-nowrap" data-category="time-off">
+        Time Off
+      </button>
+    </div>
+  </div>
+  <!-- Rewards Table -->
+  <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 mb-8">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
+      <h3 class="text-lg font-semibold text-primary mb-4 sm:mb-0">Current Rewards</h3>
+      <div class="flex items-center space-x-4">
+        <div class="relative">
+          <input type="text" id="search-rewards" placeholder="Search rewards..." class="pl-10 pr-4 py-2 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary">
+          <i class="ri-search-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+        <button class="border border-gray-300 text-gray-700 px-4 py-2 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap text-sm">
+          <i class="ri-filter-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+          Filter
+        </button>
+      </div>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full">
+        <thead>
+        <tr class="border-b border-gray-200">
+          <th class="text-left py-3 px-4 font-medium text-gray-700">Reward</th>
+          <th class="text-left py-3 px-4 font-medium text-gray-700">Category</th>
+          <th class="text-left py-3 px-4 font-medium text-gray-700">Points Required</th>
+          <th class="text-left py-3 px-4 font-medium text-gray-700">Status</th>
+          <th class="text-left py-3 px-4 font-medium text-gray-700">Redemptions</th>
+          <th class="text-left py-3 px-4 font-medium text-gray-700">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="border-b border-gray-100 hover:bg-gray-50">
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <i class="ri-gift-card-line text-white text-lg"></i>
+              </div>
+              <div>
+                <p class="font-medium text-primary">Amazon Gift Card $100</p>
+                <p class="text-sm text-gray-600">Digital gift card for online shopping</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-4">
+            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Gift Cards</span>
+          </td>
+          <td class="py-4 px-4 font-semibold text-primary">2,500</td>
+          <td class="py-4 px-4">
+            <div class="toggle-switch active" data-reward-id="1"></div>
+          </td>
+          <td class="py-4 px-4 text-gray-700">47</td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-2">
+              <button class="edit-reward text-secondary hover:text-secondary/80 text-sm font-medium" data-reward-id="1">Edit</button>
+              <button class="delete-reward text-red-600 hover:text-red-800 text-sm font-medium" data-reward-id="1">Delete</button>
+            </div>
+          </td>
+        </tr>
+        <tr class="border-b border-gray-100 hover:bg-gray-50">
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-lg flex items-center justify-center">
+                <i class="ri-t-shirt-line text-white text-lg"></i>
+              </div>
+              <div>
+                <p class="font-medium text-primary">Company Branded Hoodie</p>
+                <p class="text-sm text-gray-600">Premium quality hoodie with company logo</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-4">
+            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Company Swag</span>
+          </td>
+          <td class="py-4 px-4 font-semibold text-primary">1,800</td>
+          <td class="py-4 px-4">
+            <div class="toggle-switch active" data-reward-id="2"></div>
+          </td>
+          <td class="py-4 px-4 text-gray-700">32</td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-2">
+              <button class="edit-reward text-secondary hover:text-secondary/80 text-sm font-medium" data-reward-id="2">Edit</button>
+              <button class="delete-reward text-red-600 hover:text-red-800 text-sm font-medium" data-reward-id="2">Delete</button>
+            </div>
+          </td>
+        </tr>
+        <tr class="border-b border-gray-100 hover:bg-gray-50">
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
+                <i class="ri-calendar-check-line text-white text-lg"></i>
+              </div>
+              <div>
+                <p class="font-medium text-primary">Extra Day Off</p>
+                <p class="text-sm text-gray-600">Additional paid time off day</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-4">
+            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">Time Off</span>
+          </td>
+          <td class="py-4 px-4 font-semibold text-primary">3,000</td>
+          <td class="py-4 px-4">
+            <div class="toggle-switch active" data-reward-id="3"></div>
+          </td>
+          <td class="py-4 px-4 text-gray-700">28</td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-2">
+              <button class="edit-reward text-secondary hover:text-secondary/80 text-sm font-medium" data-reward-id="3">Edit</button>
+              <button class="delete-reward text-red-600 hover:text-red-800 text-sm font-medium" data-reward-id="3">Delete</button>
+            </div>
+          </td>
+        </tr>
+        <tr class="border-b border-gray-100 hover:bg-gray-50">
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
+                <i class="ri-spa-line text-white text-lg"></i>
+              </div>
+              <div>
+                <p class="font-medium text-primary">Spa &amp; Wellness Package</p>
+                <p class="text-sm text-gray-600">Relaxing spa day experience</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-4">
+            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">Wellness Benefits</span>
+          </td>
+          <td class="py-4 px-4 font-semibold text-primary">4,500</td>
+          <td class="py-4 px-4">
+            <div class="toggle-switch" data-reward-id="4"></div>
+          </td>
+          <td class="py-4 px-4 text-gray-700">15</td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-2">
+              <button class="edit-reward text-secondary hover:text-secondary/80 text-sm font-medium" data-reward-id="4">Edit</button>
+              <button class="delete-reward text-red-600 hover:text-red-800 text-sm font-medium" data-reward-id="4">Delete</button>
+            </div>
+          </td>
+        </tr>
+        <tr class="hover:bg-gray-50">
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-lg flex items-center justify-center">
+                <i class="ri-restaurant-line text-white text-lg"></i>
+              </div>
+              <div>
+                <p class="font-medium text-primary">Team Lunch Experience</p>
+                <p class="text-sm text-gray-600">Premium restaurant dining for team</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-4">
+            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">Experiences</span>
+          </td>
+          <td class="py-4 px-4 font-semibold text-primary">2,200</td>
+          <td class="py-4 px-4">
+            <div class="toggle-switch active" data-reward-id="5"></div>
+          </td>
+          <td class="py-4 px-4 text-gray-700">23</td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-2">
+              <button class="edit-reward text-secondary hover:text-secondary/80 text-sm font-medium" data-reward-id="5">Edit</button>
+              <button class="delete-reward text-red-600 hover:text-red-800 text-sm font-medium" data-reward-id="5">Delete</button>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Recent Redemptions -->
+  <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="text-lg font-semibold text-primary">Recent Redemptions</h3>
+      <button class="text-secondary hover:text-secondary/80 text-sm font-medium">View All History</button>
+    </div>
+    <div class="space-y-4">
+      <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full">
+            <i class="ri-gift-card-line text-blue-600"></i>
+          </div>
+          <div>
+            <p class="font-medium text-primary">Sarah Chen redeemed Amazon Gift Card $100</p>
+            <p class="text-sm text-gray-600">2,500 points used • Marketing Department</p>
+          </div>
+        </div>
+        <span class="text-sm text-gray-500">5 min ago</span>
+      </div>
+      <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 flex items-center justify-center bg-green-100 rounded-full">
+            <i class="ri-t-shirt-line text-green-600"></i>
+          </div>
+          <div>
+            <p class="font-medium text-primary">Marcus Rodriguez redeemed Company Branded Hoodie</p>
+            <p class="text-sm text-gray-600">1,800 points used • Engineering Department</p>
+          </div>
+        </div>
+        <span class="text-sm text-gray-500">2 hours ago</span>
+      </div>
+      <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 flex items-center justify-center bg-orange-100 rounded-full">
+            <i class="ri-calendar-check-line text-orange-600"></i>
+          </div>
+          <div>
+            <p class="font-medium text-primary">Emma Thompson redeemed Extra Day Off</p>
+            <p class="text-sm text-gray-600">3,000 points used • Sales Department</p>
+          </div>
+        </div>
+        <span class="text-sm text-gray-500">1 day ago</span>
+      </div>
+    </div>
+  </div>
+</main>

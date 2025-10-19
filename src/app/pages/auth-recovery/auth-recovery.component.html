@@ -1,0 +1,73 @@
+<header class="bg-primary/90 backdrop-blur-sm text-white sticky top-0 z-50">
+  <div class="w-full px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Back Button and Logo -->
+      <div class="flex items-center space-x-4 cursor-pointer">
+        <a routerLink="/" data-readdy="true" class="w-10 h-10 flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors">
+          <i class="ri-arrow-left-line text-xl"></i>
+        </a>
+        <span routerLink="/" class="font-['Pacifico'] text-2xl text-secondary">Challenge Arena</span>
+      </div>
+      <!-- Back to Login Link -->
+      <div class="flex items-center space-x-4">
+        <span class="text-gray-300 text-sm">Remember your password?</span>
+        <a routerLink='/login' data-readdy="true" class="text-secondary hover:text-white transition-colors font-medium">Back to Login</a>
+      </div>
+    </div>
+  </div>
+</header>
+<!---->
+<div class="min-h-screen flex items-center justify-center px-4 py-12 recovery-container">
+  <div class="form-container w-full max-w-md rounded-2xl shadow-2xl p-8 border border-white/20">
+    <!-- Reset Password Form Title -->
+    <div class="text-center mb-8">
+      <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+        <i class="ri-lock-password-line text-2xl text-secondary"></i>
+      </div>
+      <h1 class="text-3xl font-bold text-primary mb-2">Reset Your Password</h1>
+      <p class="text-gray-600">Enter your registered email address and we'll send you a link to reset your password.</p>
+    </div>
+    <!-- Reset Password Form -->
+    <form class="space-y-6" id="reset-form">
+      <!-- Email Input Field -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-primary mb-2">Email Address</label>
+        <div class="relative">
+          <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-colors text-sm bg-white" placeholder="Enter your registered email address" required="">
+          <div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center">
+            <i class="ri-mail-line text-gray-400"></i>
+          </div>
+        </div>
+      </div>
+      <!-- Send Reset Link Button -->
+      <button type="submit" class="w-full bg-secondary text-white py-3 px-4 !rounded-button hover:bg-opacity-90 transition-colors font-semibold text-lg whitespace-nowrap" id="submit-btn">
+        Send Reset Link
+      </button>
+    </form>
+    <!-- Success Message (Hidden by default) -->
+    <div id="success-message" class="success-message rounded-lg p-4 mt-6 hidden">
+      <div class="flex items-center">
+        <div class="w-6 h-6 flex items-center justify-center mr-3">
+          <i class="ri-check-line text-green-600 text-lg"></i>
+        </div>
+        <div>
+          <h3 class="text-green-800 font-semibold">Reset link sent!</h3>
+          <p class="text-green-700 text-sm mt-1">Check your email for password reset instructions.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Additional Information -->
+    <div class="mt-6 text-center">
+      <p class="text-gray-600 text-sm">
+        If you don't receive an email within a few minutes, please check your spam folder or try again.
+      </p>
+    </div>
+    <!-- Back to Login Link -->
+    <div class="mt-8 text-center">
+      <p class="text-gray-600">
+        Remember your password?
+        <a routerLink="/login" data-readdy="true" class="text-secondary hover:text-primary transition-colors font-medium">Back to Login</a>
+      </p>
+    </div>
+  </div>
+</div>

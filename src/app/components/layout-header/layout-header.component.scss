@@ -1,0 +1,43 @@
+.hero-bg {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+}
+.card-hover {
+  transition: all 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.coin-animation {
+  animation: coinFloat 2s ease-in-out infinite;
+}
+@keyframes coinFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.progress-bar {
+  animation: progressFill 3s ease-in-out infinite;
+}
+@keyframes progressFill {
+  0% { width: 0%; }
+  50% { width: 75%; }
+  100% { width: 100%; }
+}
+.reward-card {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.reward-card:hover {
+  transform: rotateY(10deg) rotateX(5deg);
+}
+.mobile-menu {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.active {
+  color: #06b6d4;
+}

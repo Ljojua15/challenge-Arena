@@ -1,0 +1,120 @@
+<crocoarena-company-header/>
+<!----->
+<div class="flex min-h-screen">
+  <!-- Sidebar -->
+  <aside class="hidden lg:block w-64 bg-white shadow-lg">
+    <nav class="p-6">
+      <ul class="space-y-2">
+        <li routerLink="/company/home" routerLinkActive="active" >
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button">
+            <i class="ri-dashboard-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Dashboard
+          </button>
+        </li>
+        <li routerLink="/company/employee" routerLinkActive="active">
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button text-gray-600">
+            <i class="ri-team-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Employee Management
+          </button>
+        </li>
+        <li routerLink="/company/challenge" routerLinkActive="active">
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button text-gray-600">
+            <i class="ri-trophy-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Challenge Creation
+          </button>
+        </li>
+        <li routerLink="/company/reporting" routerLinkActive="active">
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button text-gray-600">
+            <i class="ri-bar-chart-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Analytics &amp; Reporting
+          </button>
+        </li>
+        <li routerLink="/company/rewards" routerLinkActive="active">
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button text-gray-600">
+            <i class="ri-gift-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Reward Management
+          </button>
+        </li>
+        <li routerLink="/company/performance" routerLinkActive="active">
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button text-gray-600">
+            <i class="ri-line-chart-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Team Performance
+          </button>
+        </li>
+        <li routerLink="/company/subscription" routerLinkActive="active">
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button text-gray-600">
+            <i class="ri-settings-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Subscription Plans
+          </button>
+        </li>
+        <li routerLink="/company/settings" routerLinkActive="active">
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button text-gray-600">
+            <i class="ri-settings-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Company Settings
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <!-- Mobile Sidebar -->
+  <div id="mobile-sidebar" class="mobile-sidebar fixed top-16 left-0 w-64 h-screen bg-white shadow-lg z-40 lg:hidden">
+    <nav class="p-6">
+      <ul class="space-y-2">
+        <li>
+          <button class="sidebar-item active w-full flex items-center px-4 py-3 text-left !rounded-button">
+            <i class="ri-dashboard-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Dashboard
+          </button>
+        </li>
+        <li>
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button text-gray-600">
+            <i class="ri-team-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Employee Management
+          </button>
+        </li>
+        <li>
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button text-gray-600">
+            <i class="ri-trophy-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Challenge Creation
+          </button>
+        </li>
+        <li>
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button text-gray-600">
+            <i class="ri-bar-chart-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Analytics &amp; Reporting
+          </button>
+        </li>
+        <li>
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button text-gray-600">
+            <i class="ri-gift-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Reward Management
+          </button>
+        </li>
+        <li>
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button text-gray-600">
+            <i class="ri-line-chart-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Team Performance
+          </button>
+        </li>
+        <li>
+          <button class="sidebar-item w-full flex items-center px-4 py-3 text-left !rounded-button text-gray-600">
+            <i class="ri-settings-line w-5 h-5 flex items-center justify-center mr-3"></i>
+            Company Settings
+          </button>
+        </li>
+      </ul>
+      <div class="mt-8 pt-6 border-t border-gray-200">
+        <a href="https://readdy.ai/home/515b074f-323a-4253-b5e9-2b3faf37d84c/037444d4-ac58-4b0c-a750-ec0a70d5897a" data-readdy="true" class="flex items-center text-gray-600 hover:text-secondary transition-colors">
+          <i class="ri-arrow-left-line w-4 h-4 flex items-center justify-center mr-2"></i>
+          Back to Home
+        </a>
+      </div>
+    </nav>
+  </div>
+  <!-- Main Content -->
+  <main class="flex-1 p-6 lg:p-8">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+<!----->
+<crocoarena-company-footer />

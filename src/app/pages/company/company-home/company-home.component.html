@@ -1,0 +1,351 @@
+<!-- Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8">
+  <div>
+    <h1 class="text-3xl font-bold text-primary mb-2">Dashboard Overview</h1>
+    <p class="text-gray-600">Welcome back! Here's what's happening with your team today.</p>
+  </div>
+  <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+    <a routerLink="/company/challenge" data-readdy="true" class="bg-secondary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap inline-flex items-center">
+      <i class="ri-add-line w-4 h-4 flex items-center justify-center mr-2"></i>
+      Create Challenge
+    </a>
+    <button class="border border-gray-300 text-gray-700 px-4 py-2 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+      <i class="ri-download-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+      Export Report
+    </button>
+  </div>
+</div>
+<!-- KPI Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+  <div class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+    <div class="flex items-center justify-between mb-4">
+      <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-xl">
+        <i class="ri-team-line text-2xl text-blue-600"></i>
+      </div>
+      <span class="text-sm text-green-600 font-medium">+12%</span>
+    </div>
+    <h3 class="text-2xl font-bold text-primary mb-1">1,247</h3>
+    <p class="text-gray-600">Total Employees</p>
+  </div>
+  <div class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+    <div class="flex items-center justify-between mb-4">
+      <div class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-xl">
+        <i class="ri-trophy-line text-2xl text-green-600"></i>
+      </div>
+      <span class="text-sm text-green-600 font-medium">+8%</span>
+    </div>
+    <h3 class="text-2xl font-bold text-primary mb-1">23</h3>
+    <p class="text-gray-600">Active Challenges</p>
+  </div>
+  <div class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+    <div class="flex items-center justify-between mb-4">
+      <div class="w-12 h-12 flex items-center justify-center bg-orange-100 rounded-xl">
+        <i class="ri-heart-pulse-line text-2xl text-orange-600"></i>
+      </div>
+      <span class="text-sm text-green-600 font-medium">+15%</span>
+    </div>
+    <h3 class="text-2xl font-bold text-primary mb-1">87%</h3>
+    <p class="text-gray-600">Engagement Rate</p>
+  </div>
+  <div class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+    <div class="flex items-center justify-between mb-4">
+      <div class="w-12 h-12 flex items-center justify-center bg-purple-100 rounded-xl">
+        <i class="ri-coin-line text-2xl text-purple-600"></i>
+      </div>
+      <span class="text-sm text-green-600 font-medium">+22%</span>
+    </div>
+    <h3 class="text-2xl font-bold text-primary mb-1">156K</h3>
+    <p class="text-gray-600">Points Distributed</p>
+  </div>
+</div>
+<!-- Charts Section -->
+<div class="grid lg:grid-cols-2 gap-8 mb-8">
+  <!-- Engagement Trends -->
+  <div class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+    <h3 class="text-lg font-semibold text-primary mb-6">Engagement Trends</h3>
+    <div id="engagementChart" style="height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" _echarts_instance_="ec_1760809026049"><div style="position: relative; width: 363px; height: 300px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="363" height="300" style="position: absolute; left: 0px; top: 0px; width: 363px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+  </div>
+  <!-- Team Performance -->
+  <div class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+    <h3 class="text-lg font-semibold text-primary mb-6">Team Performance</h3>
+    <div id="teamChart" style="height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" _echarts_instance_="ec_1760809026050"><div style="position: relative; width: 363px; height: 300px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="363" height="300" style="position: absolute; left: 0px; top: 0px; width: 363px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+  </div>
+</div>
+<!-- Quick Stats and Activity -->
+<div class="grid lg:grid-cols-3 gap-8 mb-8">
+  <!-- Recent Activities -->
+  <div class="lg:col-span-2 card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="text-lg font-semibold text-primary">Recent Activities</h3>
+      <button class="text-secondary hover:text-secondary/80 text-sm font-medium">View All</button>
+    </div>
+    <div class="space-y-4">
+      <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+        <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full">
+          <i class="ri-user-add-line text-blue-600"></i>
+        </div>
+        <div class="flex-1">
+          <p class="font-medium text-primary">New employee joined Team Spirit Sprint</p>
+          <p class="text-sm text-gray-600">Jessica Martinez enrolled in the challenge</p>
+        </div>
+        <span class="text-sm text-gray-500">2 min ago</span>
+      </div>
+      <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+        <div class="w-10 h-10 flex items-center justify-center bg-green-100 rounded-full">
+          <i class="ri-trophy-line text-green-600"></i>
+        </div>
+        <div class="flex-1">
+          <p class="font-medium text-primary">Challenge completed successfully</p>
+          <p class="text-sm text-gray-600">Wellness Month reached 95% participation</p>
+        </div>
+        <span class="text-sm text-gray-500">15 min ago</span>
+      </div>
+      <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+        <div class="w-10 h-10 flex items-center justify-center bg-orange-100 rounded-full">
+          <i class="ri-gift-line text-orange-600"></i>
+        </div>
+        <div class="flex-1">
+          <p class="font-medium text-primary">Reward redeemed</p>
+          <p class="text-sm text-gray-600">Michael Chen redeemed $100 Gift Card</p>
+        </div>
+        <span class="text-sm text-gray-500">1 hour ago</span>
+      </div>
+      <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+        <div class="w-10 h-10 flex items-center justify-center bg-purple-100 rounded-full">
+          <i class="ri-notification-line text-purple-600"></i>
+        </div>
+        <div class="flex-1">
+          <p class="font-medium text-primary">System notification</p>
+          <p class="text-sm text-gray-600">Monthly report is ready for download</p>
+        </div>
+        <span class="text-sm text-gray-500">3 hours ago</span>
+      </div>
+    </div>
+  </div>
+  <!-- Top Performers -->
+  <div class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+    <h3 class="text-lg font-semibold text-primary mb-6">Top Performers</h3>
+    <div class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+          <div>
+            <p class="font-medium text-primary">Sarah Chen</p>
+            <p class="text-sm text-gray-600">Marketing</p>
+          </div>
+        </div>
+        <span class="text-lg font-bold text-yellow-600">2,450</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+          <div>
+            <p class="font-medium text-primary">Marcus Rodriguez</p>
+            <p class="text-sm text-gray-600">Engineering</p>
+          </div>
+        </div>
+        <span class="text-lg font-bold text-gray-600">2,180</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+          <div>
+            <p class="font-medium text-primary">Emma Thompson</p>
+            <p class="text-sm text-gray-600">Sales</p>
+          </div>
+        </div>
+        <span class="text-lg font-bold text-orange-600">1,920</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-700 font-bold text-sm">4</div>
+          <div>
+            <p class="font-medium text-primary">Alex Kim</p>
+            <p class="text-sm text-gray-600">Design</p>
+          </div>
+        </div>
+        <span class="text-lg font-bold text-gray-700">1,750</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-700 font-bold text-sm">5</div>
+          <div>
+            <p class="font-medium text-primary">Jordan Blake</p>
+            <p class="text-sm text-gray-600">Operations</p>
+          </div>
+        </div>
+        <span class="text-lg font-bold text-gray-700">1,630</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Employee Overview Table -->
+<div class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200 mb-8">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
+    <h3 class="text-lg font-semibold text-primary mb-4 sm:mb-0">Employee Overview</h3>
+    <div class="flex items-center space-x-4">
+      <div class="relative">
+        <input type="text" placeholder="Search employees..." class="pl-10 pr-4 py-2 border border-gray-300 !rounded-button text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary">
+        <i class="ri-search-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+      </div>
+      <button class="border border-gray-300 text-gray-700 px-4 py-2 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap text-sm">
+        <i class="ri-filter-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+        Filter
+      </button>
+    </div>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="w-full">
+      <thead>
+      <tr class="border-b border-gray-200">
+        <th class="text-left py-3 px-4 font-medium text-gray-700">Employee</th>
+        <th class="text-left py-3 px-4 font-medium text-gray-700">Department</th>
+        <th class="text-left py-3 px-4 font-medium text-gray-700">Engagement Score</th>
+        <th class="text-left py-3 px-4 font-medium text-gray-700">Active Challenges</th>
+        <th class="text-left py-3 px-4 font-medium text-gray-700">Total Points</th>
+        <th class="text-left py-3 px-4 font-medium text-gray-700">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="border-b border-gray-100 hover:bg-gray-50">
+        <td class="py-4 px-4 text-gray-700">Marketing</td>
+        <td class="py-4 px-4">
+          <div class="flex items-center">
+            <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
+              <div class="bg-green-500 h-2 rounded-full" style="width: 92%"></div>
+            </div>
+            <span class="text-sm font-medium text-green-600">92%</span>
+          </div>
+        </td>
+        <td class="py-4 px-4 text-gray-700">3</td>
+        <td class="py-4 px-4 font-semibold text-primary">2,450</td>
+        <td class="py-4 px-4">
+          <button class="text-secondary hover:text-secondary/80 text-sm font-medium">View</button>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-100 hover:bg-gray-50">
+        <td class="py-4 px-4 text-gray-700">Engineering</td>
+        <td class="py-4 px-4">
+          <div class="flex items-center">
+            <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
+              <div class="bg-green-500 h-2 rounded-full" style="width: 88%"></div>
+            </div>
+            <span class="text-sm font-medium text-green-600">88%</span>
+          </div>
+        </td>
+        <td class="py-4 px-4 text-gray-700">2</td>
+        <td class="py-4 px-4 font-semibold text-primary">2,180</td>
+        <td class="py-4 px-4">
+          <button class="text-secondary hover:text-secondary/80 text-sm font-medium">View</button>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-100 hover:bg-gray-50">
+        <td class="py-4 px-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-medium text-sm">ET</div>
+            <div>
+              <p class="font-medium text-primary">Lasha Jojua</p>
+              <p class="text-sm text-gray-600">{{'ljojua@crocoarena.com'}}</p>
+            </div>
+          </div>
+        </td>
+        <td class="py-4 px-4 text-gray-700">Sales</td>
+        <td class="py-4 px-4">
+          <div class="flex items-center">
+            <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
+              <div class="bg-yellow-500 h-2 rounded-full" style="width: 85%"></div>
+            </div>
+            <span class="text-sm font-medium text-yellow-600">85%</span>
+          </div>
+        </td>
+        <td class="py-4 px-4 text-gray-700">4</td>
+        <td class="py-4 px-4 font-semibold text-primary">1,920</td>
+        <td class="py-4 px-4">
+          <button class="text-secondary hover:text-secondary/80 text-sm font-medium">View</button>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-100 hover:bg-gray-50">
+        <td class="py-4 px-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-medium text-sm">AK</div>
+            <div>
+              <p class="font-medium text-primary">Merabi Samkharadze</p>
+              <p class="text-sm text-gray-600">{{'msamkharadze@crocoarena.com'}}</p>
+            </div>
+          </div>
+        </td>
+        <td class="py-4 px-4 text-gray-700">Design</td>
+        <td class="py-4 px-4">
+          <div class="flex items-center">
+            <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
+              <div class="bg-yellow-500 h-2 rounded-full" style="width: 82%"></div>
+            </div>
+            <span class="text-sm font-medium text-yellow-600">82%</span>
+          </div>
+        </td>
+        <td class="py-4 px-4 text-gray-700">2</td>
+        <td class="py-4 px-4 font-semibold text-primary">1,750</td>
+        <td class="py-4 px-4">
+          <button class="text-secondary hover:text-secondary/80 text-sm font-medium">View</button>
+        </td>
+      </tr>
+      <tr class="hover:bg-gray-50">
+        <td class="py-4 px-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-medium text-sm">JB</div>
+            <div>
+              <p class="font-medium text-primary">Lekso Aleksidze</p>
+              <p class="text-sm text-gray-600">{{'laleksidze@crocoarena.com'}}</p>
+            </div>
+          </div>
+        </td>
+        <td class="py-4 px-4 text-gray-700">Operations</td>
+        <td class="py-4 px-4">
+          <div class="flex items-center">
+            <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
+              <div class="bg-orange-500 h-2 rounded-full" style="width: 78%"></div>
+            </div>
+            <span class="text-sm font-medium text-orange-600">78%</span>
+          </div>
+        </td>
+        <td class="py-4 px-4 text-gray-700">1</td>
+        <td class="py-4 px-4 font-semibold text-primary">1,630</td>
+        <td class="py-4 px-4">
+          <button class="text-secondary hover:text-secondary/80 text-sm font-medium">View</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Quick Actions -->
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  <a href="https://readdy.ai/home/515b074f-323a-4253-b5e9-2b3faf37d84c/d28d593b-8814-42e7-b92d-dbc29f26b0d4" data-readdy="true" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200 text-left hover:border-secondary transition-colors block">
+    <div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-xl mb-4">
+      <i class="ri-add-line text-2xl text-secondary"></i>
+    </div>
+    <h3 class="font-semibold text-primary mb-2">Create New Challenge</h3>
+    <p class="text-sm text-gray-600">Design custom challenges for your team</p>
+  </a>
+  <button class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200 text-left hover:border-secondary transition-colors">
+    <div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-xl mb-4">
+      <i class="ri-file-chart-line text-2xl text-secondary"></i>
+    </div>
+    <h3 class="font-semibold text-primary mb-2">Generate Report</h3>
+    <p class="text-sm text-gray-600">Create detailed analytics reports</p>
+  </button>
+  <a href="https://readdy.ai/home/515b074f-323a-4253-b5e9-2b3faf37d84c/579f5056-4ca5-4270-9556-7471b7b2c4f0" data-readdy="true" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200 text-left hover:border-secondary transition-colors block">
+    <div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-xl mb-4">
+      <i class="ri-gift-line text-2xl text-secondary"></i>
+    </div>
+    <h3 class="font-semibold text-primary mb-2">Manage Rewards</h3>
+    <p class="text-sm text-gray-600">Add and configure reward options</p>
+  </a>
+  <button class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-200 text-left hover:border-secondary transition-colors">
+    <div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-xl mb-4">
+      <i class="ri-user-add-line text-2xl text-secondary"></i>
+    </div>
+    <h3 class="font-semibold text-primary mb-2">Invite Employees</h3>
+    <p class="text-sm text-gray-600">Send invitations to new team members</p>
+  </button>
+</div>

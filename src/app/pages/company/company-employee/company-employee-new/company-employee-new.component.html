@@ -1,0 +1,164 @@
+<main>
+  <div class="breadcrumb">
+    <a routerLink="/company/employee" data-readdy="true">Employee Management</a>
+    <span class="breadcrumb-separator">
+<i class="ri-arrow-right-s-line w-4 h-4 flex items-center justify-center"></i>
+</span>
+    <span>Add New Employee</span>
+  </div>
+
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-primary mb-2">Add New Employee</h1>
+    <p class="text-gray-600">Create a new employee record with personal and employment information.</p>
+  </div>
+
+  <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+    <form id="employee-form">
+      <div class="form-section">
+        <h2 class="text-xl font-semibold text-primary mb-6">Personal Information</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="lg:col-span-2">
+            <div class="form-group">
+              <label class="form-label">Profile Photo</label>
+              <div class="flex items-start space-x-6">
+                <div id="photo-preview" class="flex-shrink-0">
+                  <img  src="https://readdy.ai/api/search-image?query=placeholder%20avatar%20silhouette%20gray%20background%20professional%20neutral%20headshot%20template&amp;width=100&amp;height=100&amp;seq=avatar-placeholder&amp;orientation=squarish" alt="Profile Preview" class="preview-image">
+                </div>
+                <div class="flex-1">
+                  <div class="upload-area" id="upload-area">
+                    <input type="file" id="photo-input" accept="image/*" class="hidden">
+                    <i class="ri-camera-line text-3xl text-gray-400 mb-2"></i>
+                    <p class="text-gray-600 mb-1">Click to upload or drag and drop</p>
+                    <p class="text-sm text-gray-500">PNG, JPG up to 5MB</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fullName" class="form-label">Full Name <span class="required">*</span></label>
+            <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Enter full name" required="">
+            <div class="form-error" id="fullName-error">Please enter a valid full name</div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="Enter email address" required="">
+            <div class="form-error" id="email-error">Please enter a valid email address</div>
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="Enter phone number">
+            <div class="form-error" id="phone-error">Please enter a valid phone number</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2 class="text-xl font-semibold text-primary mb-6">Employment Details</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="form-group">
+            <label for="employeeId" class="form-label">Employee ID <span class="required">*</span></label>
+            <div class="flex items-center space-x-2">
+              <input type="text" id="employeeId" name="employeeId" class="form-input" placeholder="Auto-generated" readonly="">
+              <button type="button" id="generate-id" class="px-4 py-2 bg-gray-100 text-gray-700 !rounded-button hover:bg-gray-200 transition-colors text-sm whitespace-nowrap">
+                Generate
+              </button>
+            </div>
+            <div class="form-error" id="employeeId-error">Employee ID is required</div>
+          </div>
+          <div class="form-group">
+            <label for="department" class="form-label">Department <span class="required">*</span></label>
+            <div class="custom-select">
+              <select id="department" name="department" class="form-input" required="">
+                <option value="">Select Department</option>
+                <option value="engineering">Engineering</option>
+                <option value="marketing">Marketing</option>
+                <option value="sales">Sales</option>
+                <option value="hr">Human Resources</option>
+                <option value="finance">Finance</option>
+                <option value="operations">Operations</option>
+                <option value="design">Design</option>
+                <option value="product">Product</option>
+              </select>
+            </div>
+            <div class="form-error" id="department-error">Please select a department</div>
+          </div>
+          <div class="form-group">
+            <label for="jobRole" class="form-label">Job Role/Position <span class="required">*</span></label>
+            <input type="text" id="jobRole" name="jobRole" class="form-input" placeholder="Enter job role" required="">
+            <div class="form-error" id="jobRole-error">Please enter a job role</div>
+          </div>
+          <div class="form-group">
+            <label for="hireDate" class="form-label">Hire Date <span class="required">*</span></label>
+            <input type="date" id="hireDate" name="hireDate" class="form-input" required="">
+            <div class="form-error" id="hireDate-error">Please select a hire date</div>
+          </div>
+          <div class="form-group">
+            <label for="salary" class="form-label">Annual Salary</label>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-sm">$</span>
+              <input type="number" id="salary" name="salary" class="form-input pl-8" placeholder="0" min="0" step="1000">
+            </div>
+            <div class="form-error" id="salary-error">Please enter a valid salary amount</div>
+          </div>
+          <div class="form-group">
+            <label for="status" class="form-label">Employment Status <span class="required">*</span></label>
+            <div class="custom-select">
+              <select id="status" name="status" class="form-input" required="">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
+            </div>
+            <div class="form-error" id="status-error">Please select employment status</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2 class="text-xl font-semibold text-primary mb-6">Additional Information</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="form-group">
+            <label for="manager" class="form-label">Manager/Supervisor</label>
+            <div class="custom-select">
+              <select id="manager" name="manager" class="form-input">
+                <option value="">Select Manager</option>
+                <option value="sarah-johnson">Sarah Johnson - Engineering Manager</option>
+                <option value="michael-chen">Michael Chen - Marketing Director</option>
+                <option value="emily-rodriguez">Emily Rodriguez - Sales Director</option>
+                <option value="david-thompson">David Thompson - HR Manager</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="workLocation" class="form-label">Work Location</label>
+            <div class="custom-select">
+              <select id="workLocation" name="workLocation" class="form-input">
+                <option value="">Select Location</option>
+                <option value="headquarters">Headquarters - New York</option>
+                <option value="west-coast">West Coast Office - San Francisco</option>
+                <option value="remote">Remote</option>
+                <option value="hybrid">Hybrid</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group lg:col-span-2">
+            <label for="notes" class="form-label">Notes/Comments</label>
+            <textarea id="notes" name="notes" rows="4" class="form-input resize-none" placeholder="Additional notes or comments about the employee..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-end space-y-3 sm:space-y-0 sm:space-x-4 pt-6 border-t border-gray-200">
+        <button type="button" id="cancel-btn" class="w-full sm:w-auto px-6 py-3 border border-gray-300 text-gray-700 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+          Cancel
+        </button>
+        <button type="button" id="save-another-btn" class="w-full sm:w-auto px-6 py-3 bg-gray-600 text-white !rounded-button hover:bg-gray-700 transition-colors whitespace-nowrap">
+          Save &amp; Add Another
+        </button>
+        <button type="submit" id="save-btn" class="w-full sm:w-auto px-6 py-3 bg-secondary text-white !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+          Save Employee
+        </button>
+      </div>
+    </form>
+  </div>
+</main>

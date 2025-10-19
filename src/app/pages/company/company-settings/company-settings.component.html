@@ -1,0 +1,640 @@
+<main>
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8">
+    <div>
+      <h1 class="text-3xl font-bold text-primary mb-2">Company Settings</h1>
+      <p class="text-gray-600">Configure and manage organizational settings, preferences, and system-wide defaults.</p>
+    </div>
+    <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+      <button class="bg-secondary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+        <i class="ri-save-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+        Save All Changes
+      </button>
+      <button class="border border-gray-300 text-gray-700 px-4 py-2 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+        <i class="ri-download-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+        Export Settings
+      </button>
+    </div>
+  </div>
+  <div class="space-y-8">
+    <div class="settings-section bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-lg">
+            <i class="ri-building-line text-blue-600"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary">General Company Information</h3>
+            <p class="text-sm text-gray-600">Basic company details and branding</p>
+          </div>
+        </div>
+        <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap text-sm">
+          Save Section
+        </button>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
+            <input type="text" value="" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Primary Email</label>
+            <input type="email" value="" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+            <input type="tel" value="" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Business Registration ID</label>
+            <input type="text" value="" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm">
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Company Logo</label>
+            <div class="file-upload-area p-6 text-center cursor-pointer">
+              <div class="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-lg mx-auto mb-3">
+                <i class="ri-image-line text-2xl text-gray-400"></i>
+              </div>
+              <p class="text-sm text-gray-600 mb-2">Click to upload or drag and drop</p>
+              <p class="text-xs text-gray-500">PNG, JPG up to 2MB</p>
+              <input type="file" class="hidden" accept="image/*">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Company Address</label>
+            <textarea rows="3" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm resize-none"></textarea>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Company Description</label>
+            <textarea rows="3" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm resize-none">Leading technology company focused on innovation and employee engagement solutions.</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="settings-section bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 flex items-center justify-center bg-green-100 rounded-lg">
+            <i class="ri-team-line text-green-600"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary">User Management Settings</h3>
+            <p class="text-sm text-gray-600">Configure user roles, permissions, and account policies</p>
+          </div>
+        </div>
+        <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap text-sm">
+          Save Section
+        </button>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Default User Permissions</h4>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">View Dashboard</span>
+                <div class="custom-checkbox checked" data-permission="dashboard"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Create Challenges</span>
+                <div class="custom-checkbox" data-permission="challenges"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">View Analytics</span>
+                <div class="custom-checkbox checked" data-permission="analytics"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Manage Rewards</span>
+                <div class="custom-checkbox" data-permission="rewards"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Account Creation Policy</h4>
+            <div class="space-y-3">
+              <div class="flex items-center space-x-3">
+                <div class="custom-radio checked" data-policy="admin"></div>
+                <span class="text-sm text-gray-700">Admin approval required</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="custom-radio" data-policy="auto"></div>
+                <span class="text-sm text-gray-700">Automatic approval</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="custom-radio" data-policy="invite"></div>
+                <span class="text-sm text-gray-700">Invitation only</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Password Requirements</h4>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Minimum 8 characters</span>
+                <div class="toggle-switch active" data-requirement="length"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Require uppercase letters</span>
+                <div class="toggle-switch active" data-requirement="uppercase"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Require numbers</span>
+                <div class="toggle-switch active" data-requirement="numbers"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Require special characters</span>
+                <div class="toggle-switch" data-requirement="special"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Default User Role</label>
+            <div class="relative">
+              <button class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 !rounded-button bg-white text-gray-700 hover:bg-gray-50 transition-colors text-sm">
+                <span>Employee</span>
+                <i class="ri-arrow-down-s-line w-4 h-4 flex items-center justify-center"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="settings-section bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg">
+            <i class="ri-shield-line text-red-600"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary">Security Configurations</h3>
+            <p class="text-sm text-gray-600">Manage security settings and access controls</p>
+          </div>
+        </div>
+        <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap text-sm">
+          Save Section
+        </button>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Authentication Settings</h4>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Two-Factor Authentication</span>
+                <div class="toggle-switch active" data-security="2fa"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Single Sign-On (SSO)</span>
+                <div class="toggle-switch" data-security="sso"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Remember Login</span>
+                <div class="toggle-switch active" data-security="remember"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Session Timeout (minutes)</label>
+            <input type="number" value="60" min="15" max="480" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Maximum Login Attempts</label>
+            <input type="number" value="5" min="3" max="10" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm">
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Data Protection</h4>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Data Encryption at Rest</span>
+                <div class="toggle-switch active" data-protection="encryption"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Automatic Backups</span>
+                <div class="toggle-switch active" data-protection="backups"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Audit Logging</span>
+                <div class="toggle-switch active" data-protection="audit"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Backup Frequency</label>
+            <div class="relative">
+              <button class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 !rounded-button bg-white text-gray-700 hover:bg-gray-50 transition-colors text-sm">
+                <span>Daily</span>
+                <i class="ri-arrow-down-s-line w-4 h-4 flex items-center justify-center"></i>
+              </button>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Log Retention Period (days)</label>
+            <input type="number" value="90" min="30" max="365" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="settings-section bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 flex items-center justify-center bg-yellow-100 rounded-lg">
+            <i class="ri-notification-line text-yellow-600"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary">Notification Preferences</h3>
+            <p class="text-sm text-gray-600">Configure system-wide notification settings</p>
+          </div>
+        </div>
+        <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap text-sm">
+          Save Section
+        </button>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Email Notifications</h4>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">New User Registration</span>
+                <div class="toggle-switch active" data-email="registration"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Challenge Completions</span>
+                <div class="toggle-switch active" data-email="challenges"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Goal Achievements</span>
+                <div class="toggle-switch active" data-email="goals"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">System Maintenance</span>
+                <div class="toggle-switch" data-email="maintenance"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Weekly Reports</span>
+                <div class="toggle-switch active" data-email="reports"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Alert Thresholds</h4>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Low Performance Alert (%)</label>
+                <input type="number" value="70" min="50" max="90" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Inactivity Alert (days)</label>
+                <input type="number" value="7" min="3" max="30" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">In-App Notifications</h4>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Real-time Updates</span>
+                <div class="toggle-switch active" data-app="realtime"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Achievement Badges</span>
+                <div class="toggle-switch active" data-app="badges"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Team Mentions</span>
+                <div class="toggle-switch active" data-app="mentions"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Deadline Reminders</span>
+                <div class="toggle-switch active" data-app="deadlines"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Communication Channels</h4>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Slack Integration</span>
+                <div class="toggle-switch" data-channel="slack"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Microsoft Teams</span>
+                <div class="toggle-switch active" data-channel="teams"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">SMS Notifications</span>
+                <div class="toggle-switch" data-channel="sms"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="settings-section bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 flex items-center justify-center bg-purple-100 rounded-lg">
+            <i class="ri-links-line text-purple-600"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary">Integration Settings</h3>
+            <p class="text-sm text-gray-600">Manage third-party integrations and API connections</p>
+          </div>
+        </div>
+        <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap text-sm">
+          Save Section
+        </button>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Connected Services</h4>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 flex items-center justify-center bg-blue-100 rounded">
+                    <i class="ri-microsoft-fill text-blue-600"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-900 text-sm">Microsoft 365</p>
+                    <p class="text-xs text-gray-600">Connected</p>
+                  </div>
+                </div>
+                <div class="toggle-switch active" data-integration="microsoft"></div>
+              </div>
+              <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 flex items-center justify-center bg-green-100 rounded">
+                    <i class="ri-slack-fill text-green-600"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-900 text-sm">Slack Workspace</p>
+                    <p class="text-xs text-gray-600">Not connected</p>
+                  </div>
+                </div>
+                <div class="toggle-switch" data-integration="slack"></div>
+              </div>
+              <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 flex items-center justify-center bg-orange-100 rounded">
+                    <i class="ri-google-fill text-orange-600"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-900 text-sm">Google Workspace</p>
+                    <p class="text-xs text-gray-600">Connected</p>
+                  </div>
+                </div>
+                <div class="toggle-switch active" data-integration="google"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Data Sync Preferences</h4>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Auto-sync user profiles</span>
+                <div class="toggle-switch active" data-sync="profiles"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Sync calendar events</span>
+                <div class="toggle-switch" data-sync="calendar"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Import team structure</span>
+                <div class="toggle-switch active" data-sync="teams"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">API Configuration</h4>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">API Rate Limit (requests/hour)</label>
+                <input type="number" value="1000" min="100" max="10000" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Webhook URL</label>
+                <input type="url" placeholder="https://your-domain.com/webhook" class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm">
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Enable API Access</span>
+                <div class="toggle-switch active" data-api="access"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">External Tools</h4>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Zapier Integration</span>
+                <div class="toggle-switch" data-tool="zapier"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Power BI Connector</span>
+                <div class="toggle-switch active" data-tool="powerbi"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700">Tableau Integration</span>
+                <div class="toggle-switch" data-tool="tableau"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="settings-section bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 flex items-center justify-center bg-indigo-100 rounded-lg">
+            <i class="ri-settings-3-line text-indigo-600"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary">System-wide Defaults</h3>
+            <p class="text-sm text-gray-600">Configure default settings for all users and departments</p>
+          </div>
+        </div>
+        <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap text-sm">
+          Save Section
+        </button>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Regional Settings</h4>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Default Timezone</label>
+                <div class="relative">
+                  <button class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 !rounded-button bg-white text-gray-700 hover:bg-gray-50 transition-colors text-sm">
+                    <span>Pacific Standard Time (PST)</span>
+                    <i class="ri-arrow-down-s-line w-4 h-4 flex items-center justify-center"></i>
+                  </button>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Currency</label>
+                <div class="relative">
+                  <button class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 !rounded-button bg-white text-gray-700 hover:bg-gray-50 transition-colors text-sm">
+                    <span>USD - US Dollar ($)</span>
+                    <i class="ri-arrow-down-s-line w-4 h-4 flex items-center justify-center"></i>
+                  </button>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Date Format</label>
+                <div class="space-y-2">
+                  <div class="flex items-center space-x-3">
+                    <div class="custom-radio checked" data-date="mdy"></div>
+                    <span class="text-sm text-gray-700">MM/DD/YYYY</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="custom-radio" data-date="dmy"></div>
+                    <span class="text-sm text-gray-700">DD/MM/YYYY</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="custom-radio" data-date="ymd"></div>
+                    <span class="text-sm text-gray-700">YYYY-MM-DD</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Dashboard Preferences</h4>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Default Dashboard Layout</label>
+                <div class="space-y-2">
+                  <div class="flex items-center space-x-3">
+                    <div class="custom-radio checked" data-layout="standard"></div>
+                    <span class="text-sm text-gray-700">Standard Layout</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="custom-radio" data-layout="compact"></div>
+                    <span class="text-sm text-gray-700">Compact Layout</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="custom-radio" data-layout="detailed"></div>
+                    <span class="text-sm text-gray-700">Detailed Layout</span>
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">Show welcome message</span>
+                  <div class="toggle-switch active" data-dashboard="welcome"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">Auto-refresh data</span>
+                  <div class="toggle-switch active" data-dashboard="refresh"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">Show quick actions</span>
+                  <div class="toggle-switch active" data-dashboard="actions"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Performance Settings</h4>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Default Goal Period</label>
+                <div class="relative">
+                  <button class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 !rounded-button bg-white text-gray-700 hover:bg-gray-50 transition-colors text-sm">
+                    <span>Quarterly</span>
+                    <i class="ri-arrow-down-s-line w-4 h-4 flex items-center justify-center"></i>
+                  </button>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Performance Review Frequency</label>
+                <div class="relative">
+                  <button class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 !rounded-button bg-white text-gray-700 hover:bg-gray-50 transition-colors text-sm">
+                    <span>Monthly</span>
+                    <i class="ri-arrow-down-s-line w-4 h-4 flex items-center justify-center"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">Auto-assign goals</span>
+                  <div class="toggle-switch" data-performance="autogoals"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">Enable peer reviews</span>
+                  <div class="toggle-switch active" data-performance="peer"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Theme &amp; Appearance</h4>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Default Theme</label>
+                <div class="space-y-2">
+                  <div class="flex items-center space-x-3">
+                    <div class="custom-radio checked" data-theme="light"></div>
+                    <span class="text-sm text-gray-700">Light Mode</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="custom-radio" data-theme="dark"></div>
+                    <span class="text-sm text-gray-700">Dark Mode</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="custom-radio" data-theme="auto"></div>
+                    <span class="text-sm text-gray-700">Auto (System)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">Compact sidebar</span>
+                  <div class="toggle-switch" data-theme="sidebar"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-700">Reduced animations</span>
+                  <div class="toggle-switch" data-theme="animations"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-gray-200">
+      <div class="flex items-center space-x-4">
+        <button class="border border-gray-300 text-gray-700 px-6 py-2 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+          <i class="ri-refresh-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+          Reset to Defaults
+        </button>
+        <button class="border border-gray-300 text-gray-700 px-6 py-2 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+          <i class="ri-upload-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+          Import Configuration
+        </button>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button class="border border-secondary text-secondary px-6 py-2 !rounded-button hover:bg-secondary hover:text-white transition-colors whitespace-nowrap">
+          Preview Changes
+        </button>
+        <button class="bg-secondary text-white px-8 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+          <i class="ri-save-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+          Save All Changes
+        </button>
+      </div>
+    </div>
+  </div>
+</main>

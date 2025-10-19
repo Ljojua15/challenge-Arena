@@ -1,0 +1,54 @@
+<header class="bg-primary/90 backdrop-blur-sm text-white sticky top-0 z-50">
+  <div class="w-full px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Back Button and Logo -->
+      <div class="flex items-center space-x-4 cursor-pointer">
+        <a routerLink="/" data-readdy="true" class="w-10 h-10 flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors">
+          <i class="ri-arrow-left-line text-xl"></i>
+        </a>
+        <span routerLink="/" class="font-['Pacifico'] text-2xl text-secondary">Challenge Arena</span>
+      </div>
+    </div>
+  </div>
+</header>
+<!---->
+<div class="min-h-screen flex items-center justify-center px-4 login-container">
+  <div class="form-container w-full max-w-md rounded-2xl shadow-2xl p-8 border border-white/20">
+    <!-- Login Form Title -->
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-primary mb-2">Welcome Back</h1>
+      <p class="text-gray-600">Sign in to your account to continue</p>
+    </div>
+    <!-- Login Form -->
+    <div class="space-y-6">
+      <!-- Email Input Field -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-primary mb-2">Username</label>
+        <div class="relative">
+          <input type="text" id="email"  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-colors text-sm bg-white" placeholder="Enter your email address" required="">
+          <div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center">
+            <i class="ri-mail-line text-gray-400"></i>
+          </div>
+        </div>
+      </div>
+      <!-- Password Input Field -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-primary mb-2">Password</label>
+        <div class="relative">
+          <input type="password" id="password" name="password" class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-colors text-sm bg-white" placeholder="Enter your password" required="">
+          <div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center password-toggle" id="password-toggle">
+            <i class="ri-eye-off-line text-gray-400"></i>
+          </div>
+        </div>
+      </div>
+      <!-- Forgot Password Link -->
+      <div class="text-right">
+        <a routerLink="/recovery" data-readdy="true" class="text-secondary hover:text-primary transition-colors text-sm font-medium">Forgot Password?</a>
+      </div>
+      <!-- Sign In Button -->
+      <button (click)="handleSubmit()" class="w-full bg-secondary text-white py-3 px-4 !rounded-button hover:bg-opacity-90 transition-colors font-semibold text-lg whitespace-nowrap">
+        Sign In
+      </button>
+    </div>
+  </div>
+</div>

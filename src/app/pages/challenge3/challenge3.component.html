@@ -1,0 +1,173 @@
+<main class="min-h-screen px-4 sm:px-6 lg:px-8 py-8">
+  <div class="max-w-7xl mx-auto">
+    <section class="mb-12">
+      <div class="wheel-container glassmorphism rounded-3xl p-12 relative overflow-hidden">
+
+        <!-- particles -->
+        <div class="particle particle-1" style="top: 15%; left: 10%;"></div>
+        <div class="particle particle-2" style="top: 25%; right: 15%;"></div>
+        <div class="particle particle-3" style="bottom: 20%; left: 20%;"></div>
+        <div class="particle particle-1" style="top: 40%; right: 25%;"></div>
+        <div class="particle particle-2" style="bottom: 35%; right: 10%;"></div>
+
+        <!-- header -->
+        <div class="text-center mb-12">
+          <h1 class="text-5xl font-bold mb-4">🎯 Wheel of Fairness — Win Your Festival Tickets!</h1>
+          <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+            Every employee gets an equal chance. The draw happens live — no bias, no tricks, just pure luck.
+          </p>
+        </div>
+
+        <!-- wheel -->
+        <div class="flex justify-center mb-12 relative">
+          <div class="relative">
+            <div id="wheel" class="wheel-glow w-80 h-80" [class.wheel-spinning]="isSpinning">
+              <div class="wheel-inner">
+                <div class="text-center">
+                  <div class="text-2xl font-bold mb-2">{{ wheelText }}</div>
+                  <div class="text-sm text-gray-400">248 Participants</div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-2">
+              <div class="w-0 h-0 border-l-4 border-r-4 border-b-8 border-l-transparent border-r-transparent border-b-white"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- countdown -->
+        <div class="text-center">
+          <div class="countdown-glow inline-flex items-center px-8 py-4 rounded-2xl">
+            <span class="text-white text-lg font-semibold mr-4">Next Spin Starts In</span>
+            <div class="flex items-center space-x-2 text-3xl font-bold text-cyan-300">
+              <span>{{ seconds | number:'2.0' }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Winner Modal -->
+        <div *ngIf="winnerName" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div class="glassmorphism rounded-3xl p-12 text-center max-w-md mx-4 winner-highlight">
+            <div class="text-6xl mb-4">🎉</div>
+            <h2 class="text-3xl font-bold mb-4">Congratulations!</h2>
+            <div class="text-xl text-cyan-400 font-semibold mb-6">{{ winnerName }}</div>
+            <div class="text-lg text-gray-300 mb-8">You’ve won 2 tickets to the next big festival!</div>
+            <button (click)="closeWinner()" class="neon-button text-white font-bold px-8 py-3 rounded-button">
+              Awesome!
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- leaderboard and stats -->
+  <div class="grid lg:grid-cols-3 gap-8 mb-12">
+    <div class="lg:col-span-2">
+      <div class="glassmorphism rounded-2xl p-8">
+        <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+          <i class="ri-trophy-line w-6 h-6 flex items-center justify-center text-yellow-400 mr-3"></i>
+          Winners Leaderboard
+        </h3>
+        <div class="space-y-4">
+          <div class="winner-highlight rounded-xl p-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <div class="text-2xl">1️⃣</div>
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-white font-bold">
+                G
+              </div>
+              <div>
+                <div class="font-bold text-white">Giorgi Lomidze</div>
+                <div class="text-sm text-gray-400 flex items-center">
+                  <i class="ri-ticket-2-line w-4 h-4 text-pink-400 mr-1"></i>
+                  2 Festival Tickets
+                </div>
+              </div>
+            </div>
+            <i class="ri-trophy-fill w-6 h-6 text-yellow-400"></i>
+          </div>
+
+          <div class="bg-gray-700/30 rounded-xl p-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <div class="text-2xl">2️⃣</div>
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center text-white font-bold">
+                N
+              </div>
+              <div>
+                <div class="font-bold text-white">Nino Beridze</div>
+                <div class="text-sm text-gray-400 flex items-center">
+                  <i class="ri-ticket-2-line w-4 h-4 text-pink-400 mr-1"></i>
+                  2 Festival Tickets
+                </div>
+              </div>
+            </div>
+            <i class="ri-trophy-fill w-6 h-6 text-gray-400"></i>
+          </div>
+
+          <div class="bg-gray-700/30 rounded-xl p-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <div class="text-2xl">3️⃣</div>
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white font-bold">
+                L
+              </div>
+              <div>
+                <div class="font-bold text-white">Luka Kapanadze</div>
+                <div class="text-sm text-gray-400 flex items-center">
+                  <i class="ri-ticket-2-line w-4 h-4 text-pink-400 mr-1"></i>
+                  2 Festival Tickets
+                </div>
+              </div>
+            </div>
+            <i class="ri-trophy-fill w-6 h-6 text-orange-400"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="glassmorphism rounded-2xl p-6">
+      <h3 class="text-xl font-bold text-white mb-6 text-center">Draw Statistics</h3>
+      <div class="space-y-6">
+        <div class="text-center">
+          <div class="text-4xl font-bold text-cyan-400 mb-2">248</div>
+          <div class="text-sm text-gray-400">Total Participants</div>
+        </div>
+
+        <div class="text-center">
+          <div class="text-2xl font-bold text-pink-400 mb-2 flex items-center justify-center">
+            <i class="ri-ticket-2-fill w-6 h-6 mr-2"></i>
+            Festival Tickets
+          </div>
+          <div class="text-sm text-gray-400">2 Tickets Each</div>
+        </div>
+
+        <div class="text-center">
+          <div class="text-lg font-bold text-green-400 mb-2 flex items-center justify-center">
+            <i class="ri-shield-check-line w-5 h-5 mr-2"></i>
+            Fair RNG
+          </div>
+          <div class="text-sm text-gray-400">Verified Draw</div>
+        </div>
+
+        <div class="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-lg p-4">
+          <div class="text-center">
+            <div class="text-sm text-gray-300 mb-2">Next Draw</div>
+            <div class="text-lg font-bold text-white">Tomorrow 2:00 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer CTA -->
+  <section class="mb-12">
+    <div class="glassmorphism rounded-2xl p-8 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h3 class="text-3xl font-bold text-white mb-6">Join. Watch. Win. Because every spin counts.</h3>
+        <button class="neon-button text-white font-bold text-xl px-12 py-4 !rounded-button whitespace-nowrap hover:scale-105 transition-transform">
+          Register for the Next Draw
+        </button>
+      </div>
+    </div>
+  </section>
+</main>

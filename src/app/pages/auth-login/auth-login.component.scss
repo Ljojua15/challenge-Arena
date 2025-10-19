@@ -1,0 +1,30 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.login-container {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+}
+.login-bg {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+}
+.form-container {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+}
+.social-btn {
+  transition: all 0.3s ease;
+}
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.password-toggle {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.password-toggle:hover {
+  color: #06b6d4;
+}

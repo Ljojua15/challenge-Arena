@@ -1,0 +1,589 @@
+<main>
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8">
+    <div>
+      <h1 class="text-3xl font-bold text-primary mb-2">Employee Management</h1>
+      <p class="text-gray-600">Manage employee profiles, roles, departments, and organizational structure.</p>
+    </div>
+    <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+      <a routerLink="/company/employee/777" data-readdy="true" class="bg-secondary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap inline-flex items-center">
+        <i class="ri-user-add-line w-4 h-4 flex items-center justify-center mr-2"></i>
+        Add New Employee
+      </a>
+      <button class="border border-gray-300 text-gray-700 px-4 py-2 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+        <i class="ri-upload-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+        Import Employees
+      </button>
+      <button class="border border-gray-300 text-gray-700 px-4 py-2 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+        <i class="ri-download-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+        Export Data
+      </button>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="stats-card bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-gray-600">Total Employees</p>
+          <p class="text-3xl font-bold text-primary mt-2">247</p>
+        </div>
+        <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg">
+          <i class="ri-team-line text-blue-600 text-xl"></i>
+        </div>
+      </div>
+      <div class="flex items-center mt-4">
+        <span class="text-green-600 text-sm font-medium">+12</span>
+        <span class="text-gray-600 text-sm ml-2">from last month</span>
+      </div>
+    </div>
+    <div class="stats-card bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-gray-600">Active Employees</p>
+          <p class="text-3xl font-bold text-primary mt-2">231</p>
+        </div>
+        <div class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-lg">
+          <i class="ri-user-check-line text-green-600 text-xl"></i>
+        </div>
+      </div>
+      <div class="flex items-center mt-4">
+        <span class="text-green-600 text-sm font-medium">93.5%</span>
+        <span class="text-gray-600 text-sm ml-2">active rate</span>
+      </div>
+    </div>
+    <div class="stats-card bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-gray-600">New Hires</p>
+          <p class="text-3xl font-bold text-primary mt-2">18</p>
+        </div>
+        <div class="w-12 h-12 flex items-center justify-center bg-purple-100 rounded-lg">
+          <i class="ri-user-add-line text-purple-600 text-xl"></i>
+        </div>
+      </div>
+      <div class="flex items-center mt-4">
+        <span class="text-gray-600 text-sm">This month</span>
+      </div>
+    </div>
+    <div class="stats-card bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-gray-600">Departments</p>
+          <p class="text-3xl font-bold text-primary mt-2">12</p>
+        </div>
+        <div class="w-12 h-12 flex items-center justify-center bg-orange-100 rounded-lg">
+          <i class="ri-building-line text-orange-600 text-xl"></i>
+        </div>
+      </div>
+      <div class="flex items-center mt-4">
+        <span class="text-gray-600 text-sm">Active departments</span>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border border-gray-200 mb-6">
+    <div class="p-6 border-b border-gray-200">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div class="flex-1 max-w-md">
+          <div class="relative">
+            <i class="ri-search-line w-5 h-5 flex items-center justify-center absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            <input type="text" placeholder="Search employees..." class="w-full pl-10 pr-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary text-sm">
+          </div>
+        </div>
+        <div class="flex items-center space-x-3">
+          <div class="relative">
+            <button class="filter-btn flex items-center px-4 py-2 border border-gray-300 !rounded-button bg-white text-gray-700 hover:bg-gray-50 transition-colors text-sm" data-filter="department">
+              <span>Department</span>
+              <i class="ri-arrow-down-s-line w-4 h-4 flex items-center justify-center ml-2"></i>
+            </button>
+            <div class="filter-dropdown" id="department-dropdown">
+              <div class="p-2">
+                <div class="space-y-2">
+                  <label class="flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    <input type="checkbox" class="text-secondary focus:ring-secondary">
+                    <span class="text-sm">Engineering</span>
+                  </label>
+                  <label class="flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    <input type="checkbox" class="text-secondary focus:ring-secondary">
+                    <span class="text-sm">Marketing</span>
+                  </label>
+                  <label class="flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    <input type="checkbox" class="text-secondary focus:ring-secondary">
+                    <span class="text-sm">Sales</span>
+                  </label>
+                  <label class="flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    <input type="checkbox" class="text-secondary focus:ring-secondary">
+                    <span class="text-sm">HR</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <button class="filter-btn flex items-center px-4 py-2 border border-gray-300 !rounded-button bg-white text-gray-700 hover:bg-gray-50 transition-colors text-sm" data-filter="role">
+              <span>Role</span>
+              <i class="ri-arrow-down-s-line w-4 h-4 flex items-center justify-center ml-2"></i>
+            </button>
+            <div class="filter-dropdown" id="role-dropdown">
+              <div class="p-2">
+                <div class="space-y-2">
+                  <label class="flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    <input type="checkbox" class="text-secondary focus:ring-secondary">
+                    <span class="text-sm">Manager</span>
+                  </label>
+                  <label class="flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    <input type="checkbox" class="text-secondary focus:ring-secondary">
+                    <span class="text-sm">Senior Developer</span>
+                  </label>
+                  <label class="flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    <input type="checkbox" class="text-secondary focus:ring-secondary">
+                    <span class="text-sm">Developer</span>
+                  </label>
+                  <label class="flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    <input type="checkbox" class="text-secondary focus:ring-secondary">
+                    <span class="text-sm">Analyst</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <button class="filter-btn flex items-center px-4 py-2 border border-gray-300 !rounded-button bg-white text-gray-700 hover:bg-gray-50 transition-colors text-sm" data-filter="status">
+              <span>Status</span>
+              <i class="ri-arrow-down-s-line w-4 h-4 flex items-center justify-center ml-2"></i>
+            </button>
+            <div class="filter-dropdown" id="status-dropdown">
+              <div class="p-2">
+                <div class="space-y-2">
+                  <label class="flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    <input type="checkbox" class="text-secondary focus:ring-secondary" checked="">
+                    <span class="text-sm">Active</span>
+                  </label>
+                  <label class="flex items-center space-x-2 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    <input type="checkbox" class="text-secondary focus:ring-secondary">
+                    <span class="text-sm">Inactive</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors text-sm">
+            Clear Filters
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="bulk-toolbar" class="bulk-toolbar bg-secondary text-white p-4 rounded-t-xl">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <span class="font-medium">2 employees selected</span>
+          <button class="bg-white bg-opacity-20 hover:bg-opacity-30 px-3 py-1 !rounded-button text-sm transition-colors whitespace-nowrap">
+            Change Status
+          </button>
+          <button class="bg-white bg-opacity-20 hover:bg-opacity-30 px-3 py-1 !rounded-button text-sm transition-colors whitespace-nowrap">
+            Transfer Department
+          </button>
+          <button class="bg-white bg-opacity-20 hover:bg-opacity-30 px-3 py-1 !rounded-button text-sm transition-colors whitespace-nowrap">
+            Assign Role
+          </button>
+          <button class="bg-white bg-opacity-20 hover:bg-opacity-30 px-3 py-1 !rounded-button text-sm transition-colors whitespace-nowrap">
+            Export Selected
+          </button>
+        </div>
+        <button id="close-bulk-toolbar" class="w-6 h-6 flex items-center justify-center hover:bg-white hover:bg-opacity-20 rounded">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+    </div>
+    <div class="flex items-center justify-between mb-4">
+      <div class="view-toggle flex items-center bg-gray-100 rounded-lg p-1">
+        <button class="px-3 py-1 !rounded-button text-sm font-medium transition-colors active" data-view="table">
+          <i class="ri-list-check w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+          Table View
+        </button>
+        <button class="px-3 py-1 !rounded-button text-sm font-medium transition-colors" data-view="cards">
+          <i class="ri-grid-line w-4 h-4 flex items-center justify-center mr-2 inline-flex"></i>
+          Card View
+        </button>
+      </div>
+      <div class="flex items-center space-x-4">
+        <label class="flex items-center space-x-2">
+          <div class="custom-checkbox" id="select-all"></div>
+          <span class="text-sm text-gray-600">Select All</span>
+        </label>
+      </div>
+    </div>
+    <div id="table-view" class="overflow-x-auto">
+      <table class="w-full">
+        <thead>
+        <tr class="border-b border-gray-200">
+          <th class="text-left py-3 px-4 font-medium text-gray-600 text-sm">
+            <div class="custom-checkbox"></div>
+          </th>
+          <th class="text-left py-3 px-4 font-medium text-gray-600 text-sm">Employee</th>
+          <th class="text-left py-3 px-4 font-medium text-gray-600 text-sm">Department</th>
+          <th class="text-left py-3 px-4 font-medium text-gray-600 text-sm">Role</th>
+          <th class="text-left py-3 px-4 font-medium text-gray-600 text-sm">Hire Date</th>
+          <th class="text-left py-3 px-4 font-medium text-gray-600 text-sm">Status</th>
+          <th class="text-left py-3 px-4 font-medium text-gray-600 text-sm">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="table-row border-b border-gray-100">
+          <td class="py-4 px-4">
+            <div class="custom-checkbox employee-checkbox"></div>
+          </td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-3">
+              <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20confident%20female%20software%20engineer%20with%20short%20brown%20hair%20wearing%20a%20navy%20blue%20blazer%20in%20a%20modern%20office%20setting%20with%20clean%20lighting&amp;width=40&amp;height=40&amp;seq=emp1&amp;orientation=squarish" alt="Employee" class="w-10 h-10 rounded-full object-cover object-top">
+              <div>
+                <p class="font-medium text-gray-900 text-sm">Sarah Johnson</p>
+                <p class="text-gray-600 text-xs">{{'info@example.com'}}</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-4 text-sm text-gray-600">Engineering</td>
+          <td class="py-4 px-4 text-sm text-gray-600">Senior Developer</td>
+          <td class="py-4 px-4 text-sm text-gray-600">Mar 15, 2022</td>
+          <td class="py-4 px-4">
+            <span class="status-badge status-active">Active</span>
+          </td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-2">
+              <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                <i class="ri-eye-line"></i>
+              </button>
+              <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                <i class="ri-edit-line"></i>
+              </button>
+              <div class="relative">
+                <button class="action-menu-btn w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                  <i class="ri-more-line"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="py-1">
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Transfer Department</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Change Role</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Deactivate</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="table-row border-b border-gray-100">
+          <td class="py-4 px-4">
+            <div class="custom-checkbox employee-checkbox"></div>
+          </td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-3">
+              <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20friendly%20male%20marketing%20manager%20with%20dark%20hair%20wearing%20a%20light%20gray%20suit%20in%20a%20modern%20office%20environment%20with%20soft%20natural%20lighting&amp;width=40&amp;height=40&amp;seq=emp2&amp;orientation=squarish" alt="Employee" class="w-10 h-10 rounded-full object-cover object-top">
+              <div>
+                <p class="font-medium text-gray-900 text-sm">Michael Chen</p>
+                <p class="text-gray-600 text-xs">{{'info@example.com'}}</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-4 text-sm text-gray-600">Marketing</td>
+          <td class="py-4 px-4 text-sm text-gray-600">Marketing Manager</td>
+          <td class="py-4 px-4 text-sm text-gray-600">Jan 8, 2023</td>
+          <td class="py-4 px-4">
+            <span class="status-badge status-active">Active</span>
+          </td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-2">
+              <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                <i class="ri-eye-line"></i>
+              </button>
+              <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                <i class="ri-edit-line"></i>
+              </button>
+              <div class="relative">
+                <button class="action-menu-btn w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                  <i class="ri-more-line"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="py-1">
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Transfer Department</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Change Role</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Deactivate</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="table-row border-b border-gray-100">
+          <td class="py-4 px-4">
+            <div class="custom-checkbox employee-checkbox"></div>
+          </td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-3">
+              <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20confident%20female%20sales%20director%20with%20blonde%20hair%20wearing%20a%20white%20blouse%20in%20a%20modern%20corporate%20office%20with%20professional%20lighting&amp;width=40&amp;height=40&amp;seq=emp3&amp;orientation=squarish" alt="Employee" class="w-10 h-10 rounded-full object-cover object-top">
+              <div>
+                <p class="font-medium text-gray-900 text-sm">Emily Rodriguez</p>
+                <p class="text-gray-600 text-xs">{{'info@example.com'}}</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-4 text-sm text-gray-600">Sales</td>
+          <td class="py-4 px-4 text-sm text-gray-600">Sales Director</td>
+          <td class="py-4 px-4 text-sm text-gray-600">Sep 22, 2021</td>
+          <td class="py-4 px-4">
+            <span class="status-badge status-active">Active</span>
+          </td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-2">
+              <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                <i class="ri-eye-line"></i>
+              </button>
+              <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                <i class="ri-edit-line"></i>
+              </button>
+              <div class="relative">
+                <button class="action-menu-btn w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                  <i class="ri-more-line"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="py-1">
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Transfer Department</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Change Role</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Deactivate</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="table-row border-b border-gray-100">
+          <td class="py-4 px-4">
+            <div class="custom-checkbox employee-checkbox"></div>
+          </td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-3">
+              <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20mature%20male%20HR%20manager%20with%20graying%20hair%20wearing%20a%20dark%20blue%20suit%20in%20a%20corporate%20office%20setting%20with%20warm%20professional%20lighting&amp;width=40&amp;height=40&amp;seq=emp4&amp;orientation=squarish" alt="Employee" class="w-10 h-10 rounded-full object-cover object-top">
+              <div>
+                <p class="font-medium text-gray-900 text-sm">David Thompson</p>
+                <p class="text-gray-600 text-xs">{{'info@example.com'}}</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-4 text-sm text-gray-600">HR</td>
+          <td class="py-4 px-4 text-sm text-gray-600">HR Manager</td>
+          <td class="py-4 px-4 text-sm text-gray-600">Nov 5, 2020</td>
+          <td class="py-4 px-4">
+            <span class="status-badge status-inactive">Inactive</span>
+          </td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-2">
+              <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                <i class="ri-eye-line"></i>
+              </button>
+              <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                <i class="ri-edit-line"></i>
+              </button>
+              <div class="relative">
+                <button class="action-menu-btn w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                  <i class="ri-more-line"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="py-1">
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Transfer Department</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Change Role</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-green-600 hover:bg-green-50">Activate</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="table-row border-b border-gray-100">
+          <td class="py-4 px-4">
+            <div class="custom-checkbox employee-checkbox"></div>
+          </td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-3">
+              <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20female%20developer%20with%20curly%20black%20hair%20wearing%20a%20casual%20button-up%20shirt%20in%20a%20modern%20tech%20office%20with%20bright%20natural%20lighting&amp;width=40&amp;height=40&amp;seq=emp5&amp;orientation=squarish" alt="Employee" class="w-10 h-10 rounded-full object-cover object-top">
+              <div>
+                <p class="font-medium text-gray-900 text-sm">Jessica Williams</p>
+                <p class="text-gray-600 text-xs">{{'info@example.com'}}</p>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-4 text-sm text-gray-600">Engineering</td>
+          <td class="py-4 px-4 text-sm text-gray-600">Junior Developer</td>
+          <td class="py-4 px-4 text-sm text-gray-600">Feb 14, 2024</td>
+          <td class="py-4 px-4">
+            <span class="status-badge status-active">Active</span>
+          </td>
+          <td class="py-4 px-4">
+            <div class="flex items-center space-x-2">
+              <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                <i class="ri-eye-line"></i>
+              </button>
+              <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                <i class="ri-edit-line"></i>
+              </button>
+              <div class="relative">
+                <button class="action-menu-btn w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+                  <i class="ri-more-line"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="py-1">
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Transfer Department</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Change Role</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Deactivate</button>
+                    <button class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="card-view" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="employee-card bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+        <div class="flex items-start justify-between mb-4">
+          <div class="flex items-center space-x-3">
+            <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20confident%20female%20software%20engineer%20with%20short%20brown%20hair%20wearing%20a%20navy%20blue%20blazer%20in%20a%20modern%20office%20setting%20with%20clean%20lighting&amp;width=60&amp;height=60&amp;seq=emp1card&amp;orientation=squarish" alt="Employee" class="w-12 h-12 rounded-full object-cover object-top">
+            <div>
+              <h3 class="font-semibold text-gray-900">Sarah Johnson</h3>
+              <p class="text-sm text-gray-600">Senior Developer</p>
+            </div>
+          </div>
+          <span class="status-badge status-active">Active</span>
+        </div>
+        <div class="space-y-2 mb-4">
+          <div class="flex items-center text-sm text-gray-600">
+            <i class="ri-building-line w-4 h-4 flex items-center justify-center mr-2"></i>
+            Engineering
+          </div>
+          <div class="flex items-center text-sm text-gray-600">
+            <i class="ri-mail-line w-4 h-4 flex items-center justify-center mr-2"></i>
+            {{'info@example.com'}}
+          </div>
+          <div class="flex items-center text-sm text-gray-600">
+            <i class="ri-calendar-line w-4 h-4 flex items-center justify-center mr-2"></i>
+            Hired: Mar 15, 2022
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+              <i class="ri-eye-line"></i>
+            </button>
+            <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+              <i class="ri-edit-line"></i>
+            </button>
+          </div>
+          <div class="custom-checkbox employee-checkbox"></div>
+        </div>
+      </div>
+      <div class="employee-card bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+        <div class="flex items-start justify-between mb-4">
+          <div class="flex items-center space-x-3">
+            <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20friendly%20male%20marketing%20manager%20with%20dark%20hair%20wearing%20a%20light%20gray%20suit%20in%20a%20modern%20office%20environment%20with%20soft%20natural%20lighting&amp;width=60&amp;height=60&amp;seq=emp2card&amp;orientation=squarish" alt="Employee" class="w-12 h-12 rounded-full object-cover object-top">
+            <div>
+              <h3 class="font-semibold text-gray-900">Michael Chen</h3>
+              <p class="text-sm text-gray-600">Marketing Manager</p>
+            </div>
+          </div>
+          <span class="status-badge status-active">Active</span>
+        </div>
+        <div class="space-y-2 mb-4">
+          <div class="flex items-center text-sm text-gray-600">
+            <i class="ri-building-line w-4 h-4 flex items-center justify-center mr-2"></i>
+            Marketing
+          </div>
+          <div class="flex items-center text-sm text-gray-600">
+            <i class="ri-mail-line w-4 h-4 flex items-center justify-center mr-2"></i>
+            {{'info@example.com'}}
+          </div>
+          <div class="flex items-center text-sm text-gray-600">
+            <i class="ri-calendar-line w-4 h-4 flex items-center justify-center mr-2"></i>
+            Hired: Jan 8, 2023
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+              <i class="ri-eye-line"></i>
+            </button>
+            <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+              <i class="ri-edit-line"></i>
+            </button>
+          </div>
+          <div class="custom-checkbox employee-checkbox"></div>
+        </div>
+      </div>
+      <div class="employee-card bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+        <div class="flex items-start justify-between mb-4">
+          <div class="flex items-center space-x-3">
+            <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20confident%20female%20sales%20director%20with%20blonde%20hair%20wearing%20a%20white%20blouse%20in%20a%20modern%20corporate%20office%20with%20professional%20lighting&amp;width=60&amp;height=60&amp;seq=emp3card&amp;orientation=squarish" alt="Employee" class="w-12 h-12 rounded-full object-cover object-top">
+            <div>
+              <h3 class="font-semibold text-gray-900">Emily Rodriguez</h3>
+              <p class="text-sm text-gray-600">Sales Director</p>
+            </div>
+          </div>
+          <span class="status-badge status-active">Active</span>
+        </div>
+        <div class="space-y-2 mb-4">
+          <div class="flex items-center text-sm text-gray-600">
+            <i class="ri-building-line w-4 h-4 flex items-center justify-center mr-2"></i>
+            Sales
+          </div>
+          <div class="flex items-center text-sm text-gray-600">
+            <i class="ri-mail-line w-4 h-4 flex items-center justify-center mr-2"></i>
+            {{'info@example.com'}}
+          </div>
+          <div class="flex items-center text-sm text-gray-600">
+            <i class="ri-calendar-line w-4 h-4 flex items-center justify-center mr-2"></i>
+            Hired: Sep 22, 2021
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+              <i class="ri-eye-line"></i>
+            </button>
+            <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-secondary transition-colors">
+              <i class="ri-edit-line"></i>
+            </button>
+          </div>
+          <div class="custom-checkbox employee-checkbox"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-gray-200">
+    <div class="flex items-center space-x-4">
+      <span class="text-sm text-gray-600">Showing 1-10 of 247 employees</span>
+      <div class="flex items-center space-x-2">
+        <span class="text-sm text-gray-600">Show:</span>
+        <div class="relative">
+          <button class="flex items-center px-3 py-1 border border-gray-300 !rounded-button bg-white text-gray-700 hover:bg-gray-50 transition-colors text-sm">
+            <span>10</span>
+            <i class="ri-arrow-down-s-line w-4 h-4 flex items-center justify-center ml-1"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center space-x-2">
+      <button class="w-8 h-8 flex items-center justify-center border border-gray-300 !rounded-button text-gray-400 hover:text-gray-600 transition-colors">
+        <i class="ri-arrow-left-s-line"></i>
+      </button>
+      <button class="w-8 h-8 flex items-center justify-center bg-secondary text-white !rounded-button">1</button>
+      <button class="w-8 h-8 flex items-center justify-center border border-gray-300 !rounded-button text-gray-600 hover:bg-gray-50 transition-colors">2</button>
+      <button class="w-8 h-8 flex items-center justify-center border border-gray-300 !rounded-button text-gray-600 hover:bg-gray-50 transition-colors">3</button>
+      <span class="text-gray-400">...</span>
+      <button class="w-8 h-8 flex items-center justify-center border border-gray-300 !rounded-button text-gray-600 hover:bg-gray-50 transition-colors">25</button>
+      <button class="w-8 h-8 flex items-center justify-center border border-gray-300 !rounded-button text-gray-600 hover:text-gray-800 transition-colors">
+        <i class="ri-arrow-right-s-line"></i>
+      </button>
+    </div>
+  </div>
+</main>
